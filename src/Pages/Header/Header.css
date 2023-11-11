@@ -1,0 +1,7 @@
+.navbar-bg {
+    background: linear-gradient(to right, #0575e6, #021b79);
+}
+
+.navbar-bg a {
+    color: azure;
+}
