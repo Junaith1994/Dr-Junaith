@@ -6,3 +6,13 @@
     color: azure;
     font-weight: 500;
 }
+
+.appointment-btn {
+    background: linear-gradient(to right, #4568dc, #b06ab3);
+    color: azure;
+    font-weight: 600;
+}
+
+.appointment-btn:hover {
+    background: linear-gradient(to right, #213fa1, #6b2d6d)
+}
