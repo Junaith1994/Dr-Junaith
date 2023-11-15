@@ -6,10 +6,12 @@ import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 
 const SignUp = () => {
+    // Necessary states for input fields and error message
     const emailRef = useRef('');
     const passwordRef = useRef('');
     const confirmPasswordRef = useRef('');
     const [successMsg, setSuccessMsg] = useState('');
+    const [errorMsg, setErrorMsg] = useState('');
 
     // Firebase email-password authentcation hook
     const [
@@ -19,6 +21,7 @@ const SignUp = () => {
         error,
     ] = useCreateUserWithEmailAndPassword(auth);
 
+    // console.log(user);
     // Signup form submit handler
     const formSubmitHandler = event => {
         event.preventDefault();
@@ -27,10 +30,15 @@ const SignUp = () => {
         const email = emailRef.current.value;
         const password = passwordRef.current.value;
         const confirmPass = confirmPasswordRef.current.value;
-
+        
+        // Validation to create account
         if(password === confirmPass) {
+            setErrorMsg('');
             createUserWithEmailAndPassword(email, password);
-            
+            setSuccessMsg("Account Created Successfully");
+        }
+        else {
+            setErrorMsg("Passwords don't match !!")
         }
     }
 
@@ -52,6 +60,9 @@ const SignUp = () => {
                     <Button className='appointment-btn' variant="primary" type="submit">
                         Register
                     </Button>
+                    <p className='text-success my-2 fw-semibold'>{successMsg}</p>
+                    <p className='text-danger fw-semibold'>{error && error?.message}</p>
+                    <p className='text-danger fw-semibold'>{errorMsg}</p>
                     <p className='my-2'>Already have an Account? <Link to='/login'>Login</Link></p>
                 </Form>
             </div>
