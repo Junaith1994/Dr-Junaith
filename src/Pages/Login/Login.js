@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
-import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
-import { Link } from 'react-router-dom';
+import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 
 const Login = () => {
@@ -9,6 +9,11 @@ const Login = () => {
     const emailRef = useRef('');
     const passwordRef = useRef('');
     const [successMsg, setSuccessMsg] = useState('');
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    // Previous page path of user 
+    let from = location.state?.from?.pathname || "/";
 
     // Sign-in with email & password function from firebase hook
     const [
@@ -16,6 +21,9 @@ const Login = () => {
         user,
         error,
     ] = useSignInWithEmailAndPassword(auth);
+
+    // Sign-in with google function from firebase hook
+    const [signInWithGoogle, googleUser, loading, googleError] = useSignInWithGoogle(auth);
 
     // Signup form submit handler
     const formSubmitHandler = event => {
@@ -25,12 +33,23 @@ const Login = () => {
         const email = emailRef.current.value;
         const password = passwordRef.current.value;
 
-        // Validation to login
+        // Sign-in with email and password
         signInWithEmailAndPassword(email, password);
+
+        // Redirecting user to the desired page
+        navigate(from, { replace: true });
 
         // Successful login message for user
         return user?.user ? setSuccessMsg('') : setSuccessMsg("Login Successful");
 
+    }
+
+    // Google sign-in handler
+    const googleSignInHandler = () => {
+        signInWithGoogle();
+
+        // Redirecting user to the desired page
+        navigate(from, { replace: true });
     }
 
     return (
@@ -59,7 +78,7 @@ const Login = () => {
                         <div style={{ height: '1px' }} className='bg-secondary w-50'></div>
                     </div>
                     {/* Google Sign-in Button*/}
-                    <Button className='appointment-btn w-100 d-flex justify-content-center'>
+                    <Button onClick={googleSignInHandler} className='appointment-btn w-100 d-flex justify-content-center'>
                         <img style={{ width: '30px' }} className='img-fluid' src="https://i.ibb.co/0DcJQL5/google-logo.png" alt="Google-logo" />
                         <span className='mx-5 fs-5 fw-semibold text-wrap'>Google Sign-in</span>
                     </Button>

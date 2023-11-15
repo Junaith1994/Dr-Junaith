@@ -11,7 +11,7 @@ const Header = () => {
     // Auth state & sign-out function from firebase hook
     const [user, loading] = useAuthState(auth);
     const [signOut] = useSignOut(auth);
-    
+
     return (
         <Navbar expand="lg" className="navbar-bg" sticky='top'>
             <Container>
@@ -23,7 +23,7 @@ const Header = () => {
                         <Nav.Link as={NavLink} to='/about'>About me</Nav.Link>
                         <Nav.Link as={NavLink} to='/services'>Services</Nav.Link>
                         <Nav.Link as={NavLink} to='/blogs'>Blogs</Nav.Link>
-                        {user || loading ? <Button onClick={() => signOut()} className='btn-grad'>Sign-Out</Button>
+                        {user || loading ? <Button onClick={() => signOut()} className='btn-grad fw-semibold'>Sign-Out</Button>
                             :
                             <Nav.Link as={NavLink} to='/login'>Login</Nav.Link>}
                     </Nav>
