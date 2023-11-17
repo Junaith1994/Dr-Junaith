@@ -1,17 +1,24 @@
 import React, { useRef, useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import './SignUp.css';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 
 const SignUp = () => {
-    // Necessary states for input fields and error message
+    // Necessary states for input fields, error message and hooks
     const emailRef = useRef('');
     const passwordRef = useRef('');
     const confirmPasswordRef = useRef('');
     const [successMsg, setSuccessMsg] = useState('');
     const [errorMsg, setErrorMsg] = useState('');
+    const navigate = useNavigate();
+    let location = useLocation();
+
+    let from = location.state?.from?.pathname || "/";
+
+    console.log(from);
+    console.log(location);
 
     // Firebase email-password authentcation hook
     const [
@@ -30,12 +37,12 @@ const SignUp = () => {
         const email = emailRef.current.value;
         const password = passwordRef.current.value;
         const confirmPass = confirmPasswordRef.current.value;
-        
+
         // Validation to create account
-        if(password === confirmPass) {
+        if (password === confirmPass) {
             setErrorMsg('');
             createUserWithEmailAndPassword(email, password);
-            setSuccessMsg("Account Created Successfully");
+            navigate(from, { replace: true });
         }
         else {
             setErrorMsg("Passwords don't match !!")
