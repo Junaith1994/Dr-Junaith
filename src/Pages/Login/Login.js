@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
@@ -8,22 +8,27 @@ const Login = () => {
     // Necessary input field states
     const emailRef = useRef('');
     const passwordRef = useRef('');
-    const [successMsg, setSuccessMsg] = useState('');
+    // const [successMsg, setSuccessMsg] = useState('');
     const navigate = useNavigate();
     const location = useLocation();
+    console.log(location);
 
     // Previous page path of user 
     let from = location.state?.from?.pathname || "/";
+    console.log(from);
 
     // Sign-in with email & password function from firebase hook
     const [
         signInWithEmailAndPassword,
         user,
+        loading,
         error,
     ] = useSignInWithEmailAndPassword(auth);
+    // console.log(user);
+    // console.log(error);
 
     // Sign-in with google function from firebase hook
-    const [signInWithGoogle, googleUser, loading, googleError] = useSignInWithGoogle(auth);
+    const [signInWithGoogle, googleUser, googleloading, googleError] = useSignInWithGoogle(auth);
 
     // Signup form submit handler
     const formSubmitHandler = event => {
@@ -33,30 +38,37 @@ const Login = () => {
         const email = emailRef.current.value;
         const password = passwordRef.current.value;
 
-        // Sign-in with email and password
-        signInWithEmailAndPassword(email, password);
+        // Sign-in with email and password with redirecting user to the intended page
+        signInWithEmailAndPassword(email, password)
+            .then(user => {
+                return user && navigate(from, { replace: true });
+            })
+
+        // if (user) {
+        //     setSuccessMsg("Login Successful");
+        //     return navigate(from, { replace: true });
+        // }
 
         // Redirecting user to the desired page
-        navigate(from, { replace: true });
+        // navigate(from, { replace: true });
 
         // Successful login message for user
-        return user?.user ? setSuccessMsg('') : setSuccessMsg("Login Successful");
+        // return user?.user ? (setSuccessMsg("Login Successful"), navigate(from, { replace: true })) : setSuccessMsg('');
 
     }
 
-    // Google sign-in handler
+    // Google sign-in handler with redirecting user to the intended page
     const googleSignInHandler = () => {
-        signInWithGoogle();
+        signInWithGoogle()
+            .then(user => user && navigate(from, { replace: true }))
 
-        // Redirecting user to the desired page
-        navigate(from, { replace: true });
     }
 
     return (
         <div className='mx-auto row container form-page-bg'>
             <div className='d-flex justify-content-center align-items-center vh-100'>
                 <div className='col-12 col-md-6 p-3 shadow-lg bg-body-tertiary rounded'>
-                    <Form onSubmit={formSubmitHandler}>
+                    <Form>
                         <h1 className='text-center my-4'>Please Login</h1>
                         <Form.Group className="mb-3" controlId="formBasicEmail">
                             <Form.Control type="email" ref={emailRef} placeholder="Enter Your Email" required />
@@ -64,10 +76,10 @@ const Login = () => {
                         <Form.Group className="mb-3" controlId="formBasicPassword">
                             <Form.Control type="password" ref={passwordRef} placeholder="Password" required />
                         </Form.Group>
-                        <Button className='appointment-btn' variant="primary" type="submit">
+                        <Button onClick={formSubmitHandler} className='appointment-btn' variant="primary" type="submit">
                             Login
                         </Button>
-                        <p className='text-success my-2 fw-semibold'>{successMsg}</p>
+                        {/* <p className='text-success my-2 fw-semibold'>{successMsg}</p> */}
                         <p className='text-danger fw-semibold'>{error && error?.message}</p>
                         <p className='my-2'>Don't have an Account? <Link to='/signup'>Create Account!!</Link></p>
                     </Form>
