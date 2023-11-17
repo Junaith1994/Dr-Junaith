@@ -1,8 +1,9 @@
 import React, { useRef } from 'react';
 import { Button, Form } from 'react-bootstrap';
-import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { useSendPasswordResetEmail, useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
+import { ToastContainer, toast } from 'react-toastify';
 
 const Login = () => {
     // Necessary input field states and hooks
@@ -21,6 +22,11 @@ const Login = () => {
         loading,
         error,
     ] = useSignInWithEmailAndPassword(auth);
+
+    // sendPasswordResetEmail function from firebase hook
+    const [sendPasswordResetEmail, sending, resetEmailError] = useSendPasswordResetEmail(
+        auth
+    );
 
     // Sign-in with google function from firebase hook
     const [signInWithGoogle, googleUser, googleloading, googleError] = useSignInWithGoogle(auth);
@@ -55,11 +61,18 @@ const Login = () => {
 
     }
 
+    // Password reset handler 
+    const passwordResetHandler = () => {
+        const email = emailRef.current.value;
+
+        return email ? (sendPasswordResetEmail(email), toast("Password reset email sent")) : toast("Please enter the email !");
+    }
+
     return (
         <div className='mx-auto row container form-page-bg'>
             <div className='d-flex justify-content-center align-items-center vh-100'>
                 <div className='col-12 col-md-6 p-3 shadow-lg bg-body-tertiary rounded'>
-                    <Form>
+                    <Form onSubmit={formSubmitHandler}>
                         <h1 className='text-center my-4'>Please Login</h1>
                         <Form.Group className="mb-3" controlId="formBasicEmail">
                             <Form.Control type="email" ref={emailRef} placeholder="Enter Your Email" required />
@@ -67,10 +80,11 @@ const Login = () => {
                         <Form.Group className="mb-3" controlId="formBasicPassword">
                             <Form.Control type="password" ref={passwordRef} placeholder="Password" required />
                         </Form.Group>
-                        <Button onClick={formSubmitHandler} className='appointment-btn' variant="primary" type="submit">
+                        <Button className='appointment-btn' variant="primary" type="submit">
                             Login
                         </Button>
-                        {/* <p className='text-success my-2 fw-semibold'>{successMsg}</p> */}
+                        <p className='text-danger fw-semibold my-2'>Forgot password? <Link onClick={passwordResetHandler}>Reset Password</Link></p>
+                        <ToastContainer></ToastContainer>
                         <p className='text-danger fw-semibold'>{error && error?.message}</p>
                         <p className='my-2'>Don't have an Account? <Link to='/signup'>Create Account</Link></p>
                     </Form>

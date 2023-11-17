@@ -10,15 +10,11 @@ const SignUp = () => {
     const emailRef = useRef('');
     const passwordRef = useRef('');
     const confirmPasswordRef = useRef('');
-    const [successMsg, setSuccessMsg] = useState('');
     const [errorMsg, setErrorMsg] = useState('');
     const navigate = useNavigate();
     let location = useLocation();
 
     let from = location.state?.from?.pathname || "/";
-
-    console.log(from);
-    console.log(location);
 
     // Firebase email-password authentcation hook
     const [
@@ -26,9 +22,8 @@ const SignUp = () => {
         user,
         loading,
         error,
-    ] = useCreateUserWithEmailAndPassword(auth);
+    ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
 
-    // console.log(user);
     // Signup form submit handler
     const formSubmitHandler = event => {
         event.preventDefault();
@@ -67,7 +62,6 @@ const SignUp = () => {
                     <Button className='appointment-btn' variant="primary" type="submit">
                         Register
                     </Button>
-                    <p className='text-success my-2 fw-semibold'>{successMsg}</p>
                     <p className='text-danger fw-semibold'>{error && error?.message}</p>
                     <p className='text-danger fw-semibold'>{errorMsg}</p>
                     <p className='my-2'>Already have an Account? <Link to='/login'>Login</Link></p>

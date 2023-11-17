@@ -9,6 +9,7 @@ import NotFoundPage from './Pages/NotFoundPage/NotFoundPage';
 import Login from './Pages/Login/Login';
 import SignUp from './Pages/SignUp/SignUp';
 import RequireAuth from './Pages/PrivateRoute/RequireAuth';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (

@@ -8,10 +8,13 @@ const RequireAuth = ({ children }) => {
     // Auth state from firebase hook
     const [user, loading] = useAuthState(auth);
     let location = useLocation();
-    console.log(user);
-    // if (loading) {
-    //     return <Spinner animation="border" variant="primary" />
-    // }
+    
+    // Prevention to redirect user to login page
+    if (loading) {
+        return <div className='text-center'>
+            <Spinner animation="border" variant="primary" />
+        </div>
+    }
 
     return user ? children : <Navigate to='/login' state={{ from: location }} replace ></Navigate>
 };
