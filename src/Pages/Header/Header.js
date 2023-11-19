@@ -15,7 +15,7 @@ const Header = () => {
     return (
         <Navbar expand="lg" className="navbar-bg" sticky='top'>
             <Container>
-                <Navbar.Brand as={NavLink} to='/'><FontAwesomeIcon icon={faTooth} beatFade size='2xl'></FontAwesomeIcon> <span className='fw-bold fs-4'>Taimiyah Dental Care</span></Navbar.Brand>
+                <Navbar.Brand className='border-0' as={NavLink} to='/'><FontAwesomeIcon icon={faTooth} beatFade size='2xl'></FontAwesomeIcon> <span className='fw-bold fs-4'>Taimiyah Dental Care</span></Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="ms-auto">
