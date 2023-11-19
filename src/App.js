@@ -10,6 +10,8 @@ import Login from './Pages/Login/Login';
 import SignUp from './Pages/SignUp/SignUp';
 import RequireAuth from './Pages/PrivateRoute/RequireAuth';
 import 'react-toastify/dist/ReactToastify.css';
+import About from './Pages/About/About';
+import Blogs from './Pages/Blogs/Blogs';
 
 function App() {
   return (
@@ -18,7 +20,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Home></Home>}></Route>
         <Route path='/home' element={<Home></Home>}></Route>
-        <Route path='/services' element={<Services></Services>}></Route>
+        {/* <Route path='/services' element={<Services></Services>}></Route> */}
         <Route path='/checkout' element={
           <RequireAuth>
             <CheckOut></CheckOut>
@@ -26,6 +28,8 @@ function App() {
         </Route>
         <Route path='/signup' element={<SignUp></SignUp>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
+        <Route path='/about' element={<About></About>}></Route>
+        <Route path='/blogs' element={<Blogs></Blogs>}></Route>
         <Route path='*' element={<NotFoundPage></NotFoundPage>}></Route>
       </Routes>
     </div>

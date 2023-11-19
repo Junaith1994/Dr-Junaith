@@ -1,0 +1,12 @@
+.about-bg {
+    background: linear-gradient(to bottom, #000046, #1cb5e0);
+}
+
+.name-color {
+    /* background: linear-gradient(to bottom, #ff0084, #33001b); */
+    background-color: #00DBDE;
+    background: linear-gradient(90deg, #00DBDE 0%, #FC00FF 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+}
