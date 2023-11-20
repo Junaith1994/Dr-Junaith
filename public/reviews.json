@@ -1,0 +1,30 @@
+[
+    {
+        "id": "M1",
+        "name": "Mizanur Rahman Mizan",
+        "img": "https://i.ibb.co/4dCgfnL/Mizan-003.jpg",
+        "reviewText": "Teeth whitening exceeded my expectations! The results are stunning, and the procedure was comfortable. I can't stop smiling. The staff's attention to detail and friendly approach made the entire experience fantastic.",
+        "socialLink": "https://web.facebook.com/Mizan880"
+    },
+    {
+        "id": "S2",
+        "name": "Mainul Islam Sharu",
+        "img": "https://i.ibb.co/HXbXXx9/Sharu-493.jpg",
+        "reviewText": "Incredible experience with tooth implantation! The team was caring and professional. My new implant feels completely natural, and the process was surprisingly painless. Grateful for their expertise and excellent service.",
+        "socialLink": "https://web.facebook.com/sharuminul"
+    },
+    {
+        "id": "A3",
+        "name": "Arafat Hossain",
+        "img": "https://i.ibb.co/N1fBYbQ/Hossain-188.jpg",
+        "reviewText": "Transformative journey with orthodontic braces! The progress is remarkable, and the care provided is exceptional. My confidence has soared, thanks to the skilled and friendly team. Highly recommend for a life-changing smile.",
+        "socialLink": "https://web.facebook.com/arafat.hosain.96"
+    },
+    {
+        "id": "W4",
+        "name": "Md. Abdul Wasay",
+        "img": "https://i.ibb.co/r6QKF4t/wasay-955.jpg",
+        "reviewText": "Outstanding dental check-up and cleaning! Thorough examination, gentle cleaning, and valuable oral care tips. The team's professionalism and warmth create a positive atmosphere. Best dental experience, highly recommended for comprehensive dental care.",
+        "socialLink": "https://web.facebook.com/maxwasay"
+    }
+]
