@@ -13,7 +13,7 @@ const Header = () => {
     const [signOut] = useSignOut(auth);
 
     return (
-        <Navbar expand="lg" className="navbar-bg" sticky='top'>
+        <Navbar expand="lg" className="navbar-bg navbar-dark" sticky='top'>
             <Container>
                 <Navbar.Brand className='border-0' as={NavLink} to='/'><FontAwesomeIcon icon={faTooth} beatFade size='2xl'></FontAwesomeIcon> <span className='fw-bold fs-4'>Taimiyah Dental Care</span></Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
