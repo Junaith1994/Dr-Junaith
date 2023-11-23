@@ -8,12 +8,16 @@ import ThanksModal from './ThanksModal';
 const CheckOut = () => {
     // Auth state from firebase hook
     const [user, loading, error] = useAuthState(auth);
-    const [showModal, setShowModal] = useState(false);
-    // console.log(showModal);
 
-    // form from react-hook-form
+    // For showing Modal
+    const [showModal, setShowModal] = useState(false);
+
+    // Using react-hook-form
     const { register, handleSubmit, formState: { errors }, } = useForm();
-    const onSubmit = data => console.log(data);
+    const onSubmit = data => {
+        console.log(data);
+        setShowModal(true)
+    }
 
     return (
         <div className='mx-auto row container form-page-bg'>
@@ -40,7 +44,7 @@ const CheckOut = () => {
                             <Form.Control {...register("phone", { required: true })} type="number" placeholder="Your Phone Number" />
                             {errors?.phone && <p className='text-danger'>This field is required</p>}
                         </Form.Group>
-                        <Button onClick={() => setShowModal(true)} className='fw-semibold appointment-btn' variant="primary" type="submit">
+                        <Button className='fw-semibold appointment-btn' variant="primary" type="submit">
                             Submit
                         </Button>
                     </Form>
