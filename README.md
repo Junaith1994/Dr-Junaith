@@ -17,6 +17,7 @@ https://taimiyah-dental-care.netlify.app/
 - `CheckOut page` is `protected`. If user is not logged-in it will navigate to the `Login page`. Otherwise it will redirect user to the checkout page.
 - `Autofilled` Name field feature in google sing-in.
 - `Modal Notification` after completing checkout form when submit button clicked. 
+- `Responsive` Fully mobile and desktop responsive.
 
 ## `Technology Used`
 - `Firebase` & `React Firebase hook` for Authentication.
