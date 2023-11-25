@@ -5,8 +5,6 @@
 ## Livesite Link 
 https://taimiyah-dental-care.netlify.app/
 
-## Repository Link
-https://github.com/Junaith1994/react-laptop-reviews
 
 ## `Features`
 
@@ -16,5 +14,17 @@ https://github.com/Junaith1994/react-laptop-reviews
 - `Reset Password` feature if user forget the password with toast notification on top. Notify the user with toast notification if `Reset Password` clicked but email field is empty.
 - `Google Login` feature in login page.
 - `Redirect` user to the intended page after successfully sign-up or sign-in.
-- `CheckOut page` is in the `protected` route. If user is not logged-in it will redirect to..  
+- `CheckOut page` is `protected`. If user is not logged-in it will navigate to the `Login page`. Otherwise it will redirect user to the checkout page.
+- `Autofilled` Name field feature in google sing-in.
+- `Modal Notification` after completing checkout form when submit button clicked. 
+
+## `Technology Used`
+- `Firebase` & `React Firebase hook` for Authentication.
+- `Bootstrap` & `React-Bootstrap` for CSS framework. Also used `raw CSS`.
+- `React Router` for routing.
+- `React-hook-form` for checkout page.
+- `React Font-Awesome` for icons.
+- `react-toastify` for showing toast notification.
+- `Netlify` for hosting the web app.
+- `Environment variable` to secure the firebase config file info.
 
