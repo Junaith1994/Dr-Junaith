@@ -9,7 +9,7 @@ const About = () => {
                 <img className='col-md-4 col-9 rounded-4' src="https://i.ibb.co/x8Gfb9x/junaith.jpg" alt="" />
                 <div className='col-md-6 col-9 text-light'>
                     <h3>I am <span className='name-color fw-bold fs-1'>Junaith Bin Elias Khan</span></h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores, doloremque! Rerum facilis quod quo libero aliquam distinctio animi dicta aliquid, repudiandae hic deleniti consequatur dolor ab nisi necessitatibus assumenda quaerat nam, illum laboriosam neque saepe ipsam eligendi. Dignissimos sequi debitis architecto praesentium explicabo doloribus vel aliquam, velit, labore possimus autem?</p>
+                    <p>Since childhood I was very interested in technology. My goal is to start my career as a <b>Junior Web Developer</b> within 4-5 months after finishing this course successfully In sha Allah. For this I will in Sha Allah create 2-3 persolanized projects and after this I will create my portfolio website and will add necessary things to it with all my projects, In sha Allah. Then I will create me CV and get myself prepared for the interview In sha Allah.</p>
                 </div>
             </div>
         </div>
