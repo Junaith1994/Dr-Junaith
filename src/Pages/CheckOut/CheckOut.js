@@ -26,7 +26,7 @@ const CheckOut = () => {
                     <Form onSubmit={handleSubmit(onSubmit)}>
                         <h1 className='text-center my-4'>Checkout Form</h1>
                         <Form.Group className="mb-3" controlId="formBasicName">
-                            <Form.Control className=' fw-bold' {...register("name", { required: true })} type="text" placeholder="Your Name" value={user?.displayName} />
+                            <Form.Control className=' fw-bold' {...register("name", { required: true })} type="text" placeholder="Your Name" defaultValue={user?.displayName} />
                             {errors?.name && <p className='text-danger'>This field is required</p>}
                         </Form.Group>
 

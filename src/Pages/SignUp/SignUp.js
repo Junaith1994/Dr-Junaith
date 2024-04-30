@@ -36,8 +36,14 @@ const SignUp = () => {
         // Validation to create account
         if (password === confirmPass) {
             setErrorMsg('');
-            createUserWithEmailAndPassword(email, password);
-            navigate(from, { replace: true });
+            createUserWithEmailAndPassword(email, password)
+                .then(user => {
+                    user && navigate(from, { replace: true });
+                })
+                .catch(err => {
+                    setErrorMsg(err?.message);
+                })
+            
         }
         else {
             setErrorMsg("Passwords don't match !!")

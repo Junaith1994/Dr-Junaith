@@ -2,28 +2,28 @@
     {
         "id": 1,
         "name": "Teeth Whitening",
-        "description": "Achieve a brighter smile with our professional teeth whitening service. Safe, effective, and guaranteed to enhance your confidence. Unleash your radiant smile today!",
+        "description": "Illuminate your smile with professional teeth whitening. Personalized treatments for a brighter, more confident smile that dazzles.",
         "price": "$199",
         "img": "https://i.ibb.co/Xy5mPZn/teeth-whitening.jpg"
     },
     {
         "id": 2,
         "name": "Tooth Implantation",
-        "description": "Restore your smile with our state-of-the-art dental implant procedure. Regain the natural look and functionality of your teeth. Book a consultation for lasting results.",
+        "description": "Restore your smile with precision tooth implants. Tailored solutions for seamless integration, providing natural-looking results and renewed confidence.",
         "price": "$1,999",
         "img": "https://i.ibb.co/TW1JS7g/tooth-implantation.jpg"
     },
     {
         "id": 3,
         "name": "Orthodontic Braces",
-        "description": "Transform your smile with our orthodontic braces. Straighten misaligned teeth and correct bite issues. Embrace the journey to a perfectly aligned and confident smile.",
+        "description": "Transform your smile with customized orthodontic braces. Personalized treatment plans for straighter teeth and enhanced oral health, with unparalleled comfort.",
         "price": "$2,499",
         "img": "https://i.ibb.co/xJdFv1F/orthodontics-braces.jpg"
     },
     {
         "id": 4,
         "name": "Dental Checkup & Cleaning",
-        "description": "Maintain optimal oral health with our comprehensive dental checkup and cleaning service. Professional care for a healthy smile. Schedule your appointment for a brighter future.",
+        "description": "Experience individualized dental care with comprehensive checkups and cleanings. Personal attention to ensure optimal oral health and a radiant smile.",
         "price": "$99",
         "img": "https://i.ibb.co/XkJhHHK/checkup-cleaning.jpg"
     }

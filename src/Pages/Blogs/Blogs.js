@@ -2,7 +2,7 @@ import React from 'react';
 
 const Blogs = () => {
     return (
-        <div className='container justify-content-center'>
+        <div className='justify-content-center p-4 about-bg text-light'>
             <h1 className='text-center my-3'>Blogs</h1>
             <div className=''>
                 <h3>1. Difference between Authentication and Authorization</h3>

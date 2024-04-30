@@ -1,9 +1,9 @@
 
 # Project Title
-**Taimiyah Dental Care**
+## Dr. Junaith
 
 ## Livesite Link 
-https://taimiyah-dental-care.netlify.app/
+https://dr-junaith.netlify.app/
 
 
 ## `Features`

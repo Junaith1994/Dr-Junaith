@@ -10,7 +10,7 @@ const Footer = () => {
             </div>
             {/* Oral Health Blog */}
             <div className='col-md-3 col-12 my-3'>
-                <h3 className='text-light'>Explore Our Oral Health Blog</h3>
+                <h3 className='text-light'>Explore Oral Health Blog</h3>
                 <ul>
                     <p><Link to='https://smile2impress.com/us/blog/future-innovations-dentistry' target='_blank' className='link-light link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover'>Latest Advances in Dental Care</Link>
                     </p>
@@ -34,9 +34,9 @@ const Footer = () => {
                 </ul>
             </div>
             <div className='col-md-3 col-12 my-3 text-light'>
-                <h3>Contact Us</h3>
+                <h3>Contact Me</h3>
                 <div>
-                    <h5>Address</h5> <address>Taimiyah Dental Care, Halishahar, Boropol, Chittagong.</address>
+                    <h5>Address</h5> <address>House No-5 barrister sultan R/A, Moinna para, Boropol, Chittagong.</address>
                     <h5>Phone</h5>
                     <span>01627676315</span>
                     <h5>Email</h5>
@@ -45,7 +45,7 @@ const Footer = () => {
                 </div>
             </div>
             <div className='col-12 text-light'>
-                <p>&copy; 2023 Taimiyah Dental Care. All rights reserved.</p>
+                <p>&copy; 2023 Dr. Junaith. All rights reserved.</p>
             </div>
         </div>
     );
